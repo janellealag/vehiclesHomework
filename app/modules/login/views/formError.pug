@@ -1,0 +1,26 @@
+extends ../../../templates/master.pug
+
+//- This is how we insert dynamic content to extended templates
+
+block content
+    
+    h1.title <center><font size="10"> Vehicles Management </font></center>
+    h2 <center><font size="5"> You can manage your vehicles here </font></center>
+    br
+    br
+    
+    p <font color="#FF0000"> Incorrect Email or Password! Try Again. </font>
+    br
+    
+    form(method="POST" action="/login/home")
+        .field
+            .label Email Address
+            .control
+                input.input(type="text" placeholder="email@example.com" name="email")
+        .field
+            .label Password
+            .control
+                input.input(type="password" name="password")
+                
+        input(type="submit" value="Login")
+        

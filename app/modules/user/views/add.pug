@@ -1,0 +1,48 @@
+//- This is how we extend a template using the 'extends' keyword
+extends ../../../templates/master.pug
+
+//- This is how we insert dynamic content to extended templates
+block content
+
+    h1.title <center><font size="10"> Vehicles Management </font></center>
+    h2 <center><font size="5"> You can manage your vehicles here </font></center>
+    br
+    br
+    center
+
+        a.button.is-primary(method="GET" href="/users/new?access=admin") Add Vehicles
+
+        a.button.is-primary(method="GET" href="/users/list?access=admin") View List of Vehicles
+        
+        a.button.is-primary(method="GET" href="/users/details?access=admin") View Details of a Vehicle
+            
+        a.button.is-primary(method="GET" href="/users/search?access=admin") Edit Vehicle Details
+        
+        a.button.is-primary(method="GET" href="/users/delete?access=admin") Delete a Vehicle
+            
+    br
+    br
+    
+    form(method="POST" action="/users/new?access=admin")
+        .field
+            .label Make
+            .control
+                input.input(type="text" placeholder="" name="make")
+        .field
+            .label Model
+            .control
+                input.input(type="text" placeholder="" name="model")
+        .field
+            .label Year
+            .control
+                input.input(type="number" placeholder="0000" name="year" maxlength="4")
+        .field
+            .label Plate Number
+            .control
+                input.input(type="text" placeholder="" name="plate_number")
+        .field
+            .label Condition 
+            .control
+                input.input(type="text" placeholder="Brand New or Pre-Owned only" name="condition1")
+            
+        input(type="submit" value="Submit")

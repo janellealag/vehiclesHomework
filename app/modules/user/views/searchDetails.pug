@@ -1,0 +1,30 @@
+extends ../../../templates/master.pug
+
+block content
+
+    h1.title <center><font size="10"> Vehicles Management </font></center>
+    h2 <center><font size="5"> You can manage your vehicles here </font></center>
+    br
+    br
+    center
+
+        a.button.is-primary(method="GET" href="/users/new?access=admin") Add Vehicles
+
+        a.button.is-primary(method="GET" href="/users/list?access=admin") View List of Vehicles
+        
+        a.button.is-primary(method="GET" href="/users/details?access=admin") View Details of a Vehicle
+            
+        a.button.is-primary(method="GET" href="/users/search?access=admin") Edit Vehicle Details
+        
+        a.button.is-primary(method="GET" href="/users/delete?access=admin") Delete a Vehicle
+        
+    br
+    br
+    
+    form(method="POST" action="/users/details?access=admin")
+        .field
+            .label Plate Number:
+            .control
+                input.input(type="text" placeholder="0000" name="number")
+        input(type="submit" value="search")
+    

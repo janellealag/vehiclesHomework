@@ -1,0 +1,44 @@
+extends ../../../templates/master.pug
+
+block content
+
+    h1.title <center><font size="10"> Vehicles Management </font></center>
+    h2 <center><font size="5"> You can manage your vehicles here </font></center>
+    br
+    br
+    center
+
+        a.button.is-primary(method="GET" href="/users/new?access=admin") Add Vehicles
+
+        a.button.is-primary(method="GET" href="/users/list?access=admin") View List of Vehicles
+        
+        a.button.is-primary(method="GET" href="/users/details?access=admin") View Details of a Vehicle
+            
+        a.button.is-primary(method="GET" href="/users/search?access=admin") Edit Vehicle Details
+        
+        a.button.is-primary(method="GET" href="/users/delete?access=admin") Delete a Vehicle
+        
+    br
+    br
+
+    table
+        thead
+            tr
+                td(style="font-size: 25") ID
+                td(style="font-size: 25") Make
+                td(style="font-size: 25") Model
+                td(style="font-size: 25") Year
+            tbody
+                each vehicle in vehicles
+                    tr
+                        td= vehicle.id
+                        td= vehicle.make
+                        td= vehicle.model
+                        td= vehicle.year
+                        
+ 
+    br
+    br
+    a.button(method="GET" href="/users/mainpage?access=admin") OK
+    a.button(method="GET" href="/users/search?access=admin") EDIT
+            

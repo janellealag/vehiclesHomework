@@ -1,0 +1,51 @@
+extends ../../../templates/master.pug
+
+block content
+    
+    h1.title <center><font size="10"> Vehicles Management </font></center>
+    h2 <center><font size="5"> You can manage your vehicles here </font></center>
+    br
+    br
+    center
+
+        a.button.is-primary(method="GET" href="/users/new?access=admin") Add Vehicles
+
+        a.button.is-primary(method="GET" href="/users/list?access=admin") View List of Vehicles
+        
+        a.button.is-primary(method="GET" href="/users/details?access=admin") View Details of a Vehicle
+            
+        a.button.is-primary(method="GET" href="/users/search?access=admin") Edit Vehicle Details
+        
+        a.button.is-primary(method="GET" href="/users/delete?access=admin") Delete a Vehicle
+    br
+    br
+    
+    p <font color="#FF0000"> You have an error input in some fields. Try again </font>
+    
+    br
+    
+    form(method="POST" action="/users/update?access=admin")
+        .field
+            .label Make
+            .control
+                input.input(type="text" name="make" value=`${make}`)
+        .field
+            .label Model
+            .control
+                input.input(type="text" name="model" value=`${model}`)
+        .field
+            .label Year
+            .control
+                input.input(type="number" name="year" maxlength="4" value=`${year}`)
+        .field
+            .label Plate Number
+            .control
+                input.input(type="text" name="plate_number" value=`${plate_number}`)
+        .field
+            .label Condition
+            .control
+                input.input(type="text" name="condition" value=`${condition}`)
+                
+        input(type="submit" value="OK")
+            
+                
